@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy-950: #050d1a;
+    --navy-900: #0a1628;
+    --navy-800: #0f2140;
+    --navy-700: #162d58;
+    --navy-600: #1e3a6e;
+    --blue-500: #1a6fc4;
+    --blue-400: #2281e0;
+    --blue-accent: #0ea5e9;
+    --cyan-400: #22d3ee;
+  }
+
+  body {
+    @apply bg-[#050d1a] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black min-h-screen;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a6e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(10, 22, 40, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(15, 33, 64, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glow-blue {
+  box-shadow: 0 0 35px -5px rgba(14, 165, 233, 0.3);
+}
+
+@keyframes drive-car {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(250%); }
+}
+
+.animate-drive {
+  animation: drive-car 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Animasi Scroll Elegan (Data Muncul Perlahan Saat Halaman Dibuka dan Di-Scroll) */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-init.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Micro-animations */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+.animate-float {
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(14, 165, 233, 0.25); }
+  50% { box-shadow: 0 0 35px rgba(14, 165, 233, 0.55); }
+}
+.animate-glow {
+  animation: pulseGlow 3.5s ease-in-out infinite;
+}
+
+.luxury-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.luxury-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(14, 165, 233, 0.28);
+}
